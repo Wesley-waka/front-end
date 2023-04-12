@@ -1,1 +1,3 @@
 # Virtual School Readme
+
+## License
