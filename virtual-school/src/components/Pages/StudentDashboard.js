@@ -1,46 +1,54 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import { FaTh, FaBars, FaBook } from "react-icons/fa";
+import { FaTh, FaBook } from "react-icons/fa";
 import { TbWritingSign } from "react-icons/tb";
 import { SiTestcafe } from "react-icons/si";
 import { MdAssessment } from "react-icons/md";
 import { BsFillChatLeftTextFill } from "react-icons/bs";
 
 
-import { NavLink } from "react-router-dom";
 import Dashboard from "./Dashboard";
 
 function StudentDashboard() { 
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+  
 
     const dashboardItems = [
         {
-            path: "exams",
-            name: "Add School",
-            icon: <TbBuildingBank />,
+          path: "/",
+          name: "Landing",
+          icon: <FaTh />,
         },
         {
-            path: "/",
-            name: "Add Educator",
-            icon: <FaChalkboardTeacher />,
+          path: "resources",
+          name: "Resource",
+          icon: <FaBook />,
         },
         {
-            path: "resources",
-            name: "Add Student",
-            icon: <MdSchool />,
+          path: "exams",
+          name: "Exam",
+          icon: <TbWritingSign />,
         },
         {
-            path: "resources",
-            name: "Add Course",
-            icon: <FaBook />,
+          path: "test",
+          name: "Test",
+          icon: <SiTestcafe />,
         },
         {
-            path: "resources",
-            name: "View Classes",
-            icon: <FaTable />,
+          path: "assessment",
+          name: "Assessment",
+          icon: <MdAssessment />,
         },
-    ];
+        {
+          path: "results",
+          name: "Result",
+          icon: <FaTh />,
+        },
+        {
+          path: "chat",
+          name: "Chat",
+          icon: <BsFillChatLeftTextFill />,
+        },
+      ];
 
 
     return (

@@ -1,19 +1,14 @@
 import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+
 
 import "../Pages/Dashboard.css";
 // import "../components/Dashboard.css"
 
-
-
-
-
-
 function Dashboard({ dashboardItems, children }) {
-
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-
-
 
   return (
     <div className="container">
@@ -22,10 +17,7 @@ function Dashboard({ dashboardItems, children }) {
       {/* logo upper side  */}
       <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
         <div className="top_section">
-          <h1
-            style={{ display: isOpen ? "block" : "none" }}
-            className="logo"
-          >
+          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             R
           </h1>
 
@@ -51,17 +43,15 @@ function Dashboard({ dashboardItems, children }) {
               {item.name}
             </div>
           </NavLink>
-
         ))}
       </div>
       <br />
 
       {/* CONTENT SIDE  */}
 
-      <div >
+      <div>
         <main>{children}</main>
       </div>
-
     </div>
   );
 }
