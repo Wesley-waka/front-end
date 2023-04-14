@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../components/Dashboard.css";
+import "../Pages/Dashboard.css";
 // import "../components/Dashboard.css"
 
 import { FaTh, FaBars, FaBook } from "react-icons/fa";
@@ -12,48 +12,12 @@ import { BsFillChatLeftTextFill } from "react-icons/bs";
 
 import { NavLink } from "react-router-dom";
 
-function Dashboard({ children }) {
+function Dashboard({ dashboardItems, children }) {
 
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-  const dashboardItems = [
-    {
-      path: "/",
-      name: "Landing",
-      icon: <FaTh />,
-    },
-    {
-      path: "resources",
-      name: "Resource",
-      icon: <FaBook />,
-    },
-    {
-      path: "exams",
-      name: "Exam",
-      icon: <TbWritingSign />,
-    },
-    {
-      path: "test",
-      name: "Test",
-      icon: <SiTestcafe />,
-    },
-    {
-      path: "assessment",
-      name: "Assessment",
-      icon: <MdAssessment />,
-    },
-    {
-      path: "results",
-      name: "Result",
-      icon: <FaTh />,
-    },
-    {
-      path: "chat",
-      name: "Chat",
-      icon: <BsFillChatLeftTextFill />,
-    },
-  ];
+
 
   return (
     <div className="container">
@@ -91,7 +55,7 @@ function Dashboard({ children }) {
               {item.name}
             </div>
           </NavLink>
-          
+
         ))}
       </div>
       <br />
@@ -101,7 +65,7 @@ function Dashboard({ children }) {
       <div >
         <main>{children}</main>
       </div>
-     
+
     </div>
   );
 }
