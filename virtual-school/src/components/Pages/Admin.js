@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 
 import "../Pages/Dashboard.css";
-// import "../components/Dashboard.css"
 
-import { FaBook, FaTable, FaChalkboardTeacher, FaBars } from "react-icons/fa";
+import { FaBook, FaTable, FaChalkboardTeacher } from "react-icons/fa";
 import { TbBuildingBank } from "react-icons/tb";
-import { SiTestcafe } from "react-icons/si";
+
 import { MdSchool } from "react-icons/md";
-import { BsFillChatLeftTextFill } from "react-icons/bs";
 
-
-import { NavLink } from "react-router-dom";
 import Dashboard from "./Dashboard";
 
 function Admin({ children }) {
 
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+
 
     const dashboardItems = [
         {
@@ -50,11 +45,11 @@ function Admin({ children }) {
     return (
         <>
             <Dashboard dashboardItems={dashboardItems} />
+            <div >
+                <main>{children}</main>
+            </div>
         </>
     );
 }
 
 export default Admin;
-{/* <div >
-<main>{children}</main>
-</div> */}
