@@ -3,14 +3,10 @@ import React, { useState } from "react";
 import "../Pages/Dashboard.css";
 // import "../components/Dashboard.css"
 
-import { FaTh, FaBars, FaBook } from "react-icons/fa";
-import { TbWritingSign } from "react-icons/tb";
-import { SiTestcafe } from "react-icons/si";
-import { MdAssessment } from "react-icons/md";
-import { BsFillChatLeftTextFill } from "react-icons/bs";
 
 
-import { NavLink } from "react-router-dom";
+
+
 
 function Dashboard({ dashboardItems, children }) {
 
