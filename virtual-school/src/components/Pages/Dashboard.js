@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import React from "react";
+// import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 
@@ -7,23 +7,23 @@ import "../Pages/Dashboard.css";
 // import "../components/Dashboard.css"
 
 function Dashboard({ dashboardItems, children }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div className="container">
       {/* SIDEBAR/ NAVBAR  */}
 
       {/* logo upper side  */}
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+      <div  className="sidebar">
         <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+          <h1 className="logo">
             R
           </h1>
 
-          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
-            <FaBars onClick={toggle} />
-          </div>
+          {/* <div className="bars">
+            <FaBars  />
+          </div> */}
         </div>
 
         {/* details side  */}
@@ -37,7 +37,7 @@ function Dashboard({ dashboardItems, children }) {
           >
             <div className="icon">{item.icon}</div>
             <div
-              style={{ display: isOpen ? "block" : "none" }}
+              
               className="link_text"
             >
               {item.name}
