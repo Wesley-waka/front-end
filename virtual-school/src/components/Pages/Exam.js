@@ -8,88 +8,63 @@ function Exam() {
     <div className="flex">
       {/* <StudentDashboard /> */}
 
-      <div className="flex flex-wrap max-h-screen " style={{marginLeft: "500px" }}>
-        {/* CARD 1  */}
-        <div
-          class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.8),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row w-full max-h-screen ml-10 mt-10 "
-          style={{ marginLeft: "50px" }}
-        >
-          <div class="flex flex-col justify-start p-6">
-            <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-              Course 1 Exam
+      <div className="flex gap-10 pt-5 pl-20" style={{ marginLeft: "200px" }}>
+        {/* CARD 1 */}
+
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="/">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Exam 1
             </h5>
-            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-300">
-              Last updated 3 mins ago
-            </p>
-          </div>
+          </a>
+          <p class="mb-3 font-normal text-black dark:text-gray-400">
+          Here are the your exams.
+
+          </p>
+          <a
+            href="/"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            View
+          </a>
         </div>
 
         {/* CARD 2  */}
 
-        <div
-          class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.8),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row w-full max-h-screen ml-10 mt-10 "
-          style={{ marginLeft: "50px" }}
-        >
-          <div class="flex flex-col justify-start p-6">
-            <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-              Course 2 Exam
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="/">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blue-800 dark:text-white">
+              Exam 2
             </h5>
-            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-300">
-              Last updated 3 mins ago
-            </p>
-          </div>
+          </a>
+          <p class="mb-3 font-normal text-black dark:text-gray-400">
+            Here are the your exams.
+          </p>
+          <a
+            href="/"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            View
+          </a>
         </div>
 
-        {/* CARD 3  */}
+        {/* CARD 3 */}
 
-        <div
-          class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.8),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row w-full max-h-screen ml-10 mt-10 "
-          style={{ marginLeft: "50px" }}
-        >
-          <div class="flex flex-col justify-start p-6">
-            <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-              Course 3 Exam
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="/">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-yellow-500 dark:text-white">
+              Exam 3
             </h5>
-            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-300">
-              Last updated 3 mins ago
-            </p>
-          </div>
-        </div>
-
-        {/* CARD 4  */}
-
-        <div
-          class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.8),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row w-full max-h-screen ml-10 mt-10 "
-          style={{ marginLeft: "50px" }}
-        >
-          <div class="flex flex-col justify-start p-6">
-            <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-              Course 4 Exam
-            </h5>
-            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="text-xs text-neutral-500 dark:text-neutral-300">
-              Last updated 3 mins ago
-            </p>
-          </div>
+          </a>
+          <p class="mb-3 font-normal text-black dark:text-gray-400">
+            Here are the your Exams.
+          </p>
+          <a
+            href="/"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            View
+          </a>
         </div>
       </div>
 
@@ -163,51 +138,8 @@ function Exam() {
                   </span>
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
-                  to="/student/test"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="flex-1 ml-3 text-2xl text-start">
-                  Test
-                  </span>
-                </NavLink>
-                <li>
-                <NavLink
-                  className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
-                  to="/student/assessment"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="flex-1 ml-3 text-2xl text-start">
-                    Assessment
-                  </span>
-                </NavLink>
-              </li>
+             
+              
               <li>
                 <NavLink
                   className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
@@ -253,7 +185,6 @@ function Exam() {
                 </NavLink>
               </li>
 
-              </li>
             </ul>
           </div>
         </aside>
