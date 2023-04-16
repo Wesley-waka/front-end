@@ -12,6 +12,8 @@ import { MdSchool } from "react-icons/md";
 import Dashboard from "./Dashboard";
 
 function Admin({ children }) {
+
+  
   const dashboardItems = [
     {
       path: "exams",

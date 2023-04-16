@@ -20,6 +20,10 @@ main{
     width: 200px;
     transition: all 0.5s;
 }
+
+
+
+
 .top_section{
     display: flex;
     align-items:center;
