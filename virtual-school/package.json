@@ -12,7 +12,11 @@
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
+    "styled-components": "^5.3.9",
+=======
     "typewriter-effect": "^2.19.0",
+>>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
     "web-vitals": "^2.1.4"
   },
   "scripts": {
