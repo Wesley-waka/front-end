@@ -8,7 +8,7 @@ function Dashboard({ dashboardItems, children }) {
 
 
   return (
-    <div className="container h-auto">
+    <div className="container box-border  ">
       {/* SIDEBAR/ NAVBAR  */}
 
       {/* logo upper side  */}

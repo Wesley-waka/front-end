@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import heroBcg from '../images/hero-bcg.jpg';
 import heroBcg2 from '../images/hero-bcg-2.jpg';
+import Services from './Services';
 
 import "../Pages/Dashboard.css";
 
@@ -14,7 +15,6 @@ import { TbBuildingBank } from "react-icons/tb";
 import { MdSchool } from "react-icons/md";
 
 import Dashboard from "./Dashboard";
-
 function Admin({ children }) {
 
 
@@ -86,7 +86,7 @@ function Admin({ children }) {
               <img src={heroBcg2} alt='person working' className='accent-img' />
             </article>
           </Wrapper>
-
+          <Services />
           {/* </div> */}
         </div>
       </div>
