@@ -9,7 +9,7 @@ function Dashboard({ dashboardItems, children }) {
 
 
   return (
-    <div className="container box-border  ">
+    <div className="container h-full ">
       {/* SIDEBAR/ NAVBAR  */}
 
       {/* logo upper side  */}

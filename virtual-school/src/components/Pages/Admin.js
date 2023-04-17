@@ -1,40 +1,24 @@
 import React from "react";
-<<<<<<< HEAD
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import heroBcg from '../images/hero-bcg.jpg';
 import heroBcg2 from '../images/hero-bcg-2.jpg';
 import Services from './Services';
-=======
->>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
 
 import "../Pages/Dashboard.css";
 
 import { FaBook, FaTable, FaChalkboardTeacher } from "react-icons/fa";
-<<<<<<< HEAD
 // import { FaBook, FaTable, FaChalkboardTeacher } from "react-icons/fa";
 import { TbBuildingBank } from "react-icons/tb";
 
 
 import { MdSchool } from "react-icons/md";
-=======
-import { TbBuildingBank } from "react-icons/tb";
-// import { SiTestcafe } from "react-icons/si";
-import { MdSchool } from "react-icons/md";
-// import { BsFillChatLeftTextFill } from "react-icons/bs";
-
-import Dashboard from "./Dashboard";
->>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
 
 import Dashboard from "./Dashboard";
 function Admin({ children }) {
 
-<<<<<<< HEAD
 
 
-=======
-  
->>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
   const dashboardItems = [
     {
       path: "exams",
@@ -63,7 +47,6 @@ function Admin({ children }) {
     },
   ];
 
-<<<<<<< HEAD
   // fetch("https://crowd-app.onrender.com")
   //     .then((response) => response.json())
   //     .then((data) => console.log(data))
@@ -103,15 +86,12 @@ function Admin({ children }) {
               <img src={heroBcg2} alt='person working' className='accent-img' />
             </article>
           </Wrapper>
-          <Services />
+
           {/* </div> */}
+          <Services className='absolute' />
         </div>
+
       </div>
-=======
-  return (
-    <>
-      <Dashboard dashboardItems={dashboardItems} />
->>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
     </>
   );
 }
@@ -182,10 +162,7 @@ const Wrapper = styled.section`
   }
 `
 export default Admin;
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> 35afe005ec480b301368893ccbef2b3d93e598d9
