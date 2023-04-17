@@ -1,77 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-// import StudentDashboard from "./StudentDashboard";
+// import Dashboard from "./Dashboard";
 
-function Resource() {
+function StudentDashboard() {
   return (
-    <div>
-      {/* <StudentDashboard /> */}
-
-      <div className="flex gap-10 pt-5 pl-20" style={{ marginLeft: "200px" }}>
-        {/* CARD 1 */}
-
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="/">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Book 1
-            </h5>
-          </a>
-          <p class="mb-3 font-normal text-black dark:text-gray-400">
-          Here is the resource book.
-          </p>
-          <a
-            href="/"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            View
-          </a>
-        </div>
-
-        {/* CARD 2  */}
-
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="/">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blue-800 dark:text-white">
-              Book 2
-            </h5>
-          </a>
-          <p class="mb-3 font-normal text-black dark:text-gray-400">
-          Here is the resource book.
-          </p>
-          <a
-            href="/"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            View
-          </a>
-        </div>
-
-        {/* CARD 3 */}
-
-        {/* <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="/">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-yellow-500 dark:text-white">
-              Book 3
-            </h5>
-          </a>
-          <p class="mb-3 font-normal text-black dark:text-gray-400">
-            Here is the resource book.
-          </p>
-          <a
-            href="/"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            View
-          </a>
-        </div> */}
-      </div>
-
-      {/* SIDE BAR  */}
+    <>
+      {/* <Dashboard dashboardItems={dashboardItems} /> */}
 
       <div
         className="text-center text-5xl text-bold max-h-screen"
-        style={{ marginTop: "100px" }}
+        style={{
+          marginTop: "100px",
+          backgroundImage: "https://bit.ly/3GP68X0",
+        }}
       >
         <aside
           id="default-sidebar"
@@ -106,7 +48,7 @@ function Resource() {
                     className="w-6 h-6 text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 20 20"
-                    xmlns="https://bit.ly/3UGQjaz"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                     <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
@@ -185,8 +127,8 @@ function Resource() {
           </div>
         </aside>
       </div>
-    </div>
+    </>
   );
 }
 
-export default Resource;
+export default StudentDashboard;
