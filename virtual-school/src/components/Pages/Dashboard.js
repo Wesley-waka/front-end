@@ -39,7 +39,7 @@ function Dashboard({ dashboardItems, children }) {
                 paddingRight: "-20px",
               }}
             >
-              <NavLink to="/">
+              <NavLink to="/admin">
                 <h1
                   className="text-5xl text-white font-bold pb-5 pl-0 "
                   style={{ paddingLeft: "20px" }}
@@ -47,11 +47,11 @@ function Dashboard({ dashboardItems, children }) {
                   V<span className="text-5xl text-yellow-400 ">S </span>
                 </h1>
               </NavLink>
-              {dashboardItems.map((item, index) => (
+              {dashboardItems.map((item) => (
                 <li>
                   <NavLink
                     to={item.path}
-                    key={index}
+                    // key={index}
                     className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                   >
                     <svg
