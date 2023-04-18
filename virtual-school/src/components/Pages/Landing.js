@@ -95,6 +95,10 @@ function Landing() {
                 <span className="flex-1 ml-3 text-2xl text-start">Sign In</span>
               </NavLink>
             </li>
+
+
+
+
             <li>
               <NavLink
                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
@@ -116,6 +120,9 @@ function Landing() {
                 <span className="flex-1 ml-3 text-2xl text-start">Sign Up</span>
               </NavLink>
             </li>
+
+
+
           </ul>
         </div>
       </aside>
