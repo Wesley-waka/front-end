@@ -101,7 +101,9 @@ function Result() {
                   to="/student/resources"
                   className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                 >
+
                   <div className="text-xl">
+
                     <FaBookOpen />
                   </div>
                   <span className="ml-3 text-2xl text-start">Resource</span>
@@ -113,7 +115,9 @@ function Result() {
                   to="/student/exams"
                   className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                 >
+
                   <div className="text-xl">
+
                     <SiTestcafe />
                   </div>
                   <span className="flex-1 ml-3 text-2xl text-start">Exam</span>
@@ -125,7 +129,9 @@ function Result() {
                   className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                   to="/student/results"
                 >
+
                   <div className="text-xl">
+
                     <BsGraphUp />
                   </div>
                   <span className="flex-1 ml-3 text-2xl text-start">
@@ -150,6 +156,7 @@ function Result() {
                   className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                   to="/login"
                 >
+
                   <div className="text-xl">
                     <FaSignOutAlt />
                   </div>
@@ -161,6 +168,7 @@ function Result() {
               <div style={{ paddingTop: "200px" }}>
                 <hr className="border-4"></hr>
               </div>
+
             </ul>
           </div>
           <br></br>
