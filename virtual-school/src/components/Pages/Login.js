@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import React, { useContext, useState } from "react";
+// import { AuthContext } from "./AuthContext";
+
+import {  NavLink } from "react-router-dom";
 
 function Login() {
   // const [login, setLogin] = useState()
@@ -8,40 +12,86 @@ function Login() {
   const [userType, setUserType] = useState("student");
   const navigate = useNavigate();
 
-  const ProceedLogin = (e) => {
-    e.preventDefault();
+  // const { login } = useContext(AuthContext);
 
-    setEmail("");
-    setPassword("");
-    setUserType("");
-
-    fetch(" http://localhost:5001/users", {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    fetch("/login",{
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers:{
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
-        email,
-        password,
-        userType,
-      }),
+        email, password, userType
+      })
     })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.error) {
-          console.log(response.message);
+    .then(response => response.json())
+    .then(response => {
+      if (response.error) {
+        // Show an error message
+        console.log(response.message);
+        
+      } else {
+        localStorage.setItem("token", response.jwt);
+        console.log(response)
+         // Navigate to the appropriate component
+        // Swal({
+        //   title: "Success!",
+        //   text: "LoggedIn successfully.",
+        //   icon: "success",
+        //   button: "OK",
+        // });
+       
+        if (userType === "Admin") {
+          navigate("/admin");
+        } else if (userType === "Educator" ){
+          navigate("/educator");
         } else {
-          if (userType === "Admin") {
-            navigate("/admin");
-          } else if (userType === "Educator") {
-            navigate("/educator");
-          } else if (userType === "Student") {
-            navigate("/student");
-          } else {
-            console.log("Invalid user type");
-          }
+          navigate("/student");
         }
-      });
+        
+      }
+    });
   };
+
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+
+  // const ProceedLogin = (e) => {
+  //   e.preventDefault();
+
+  //   setEmail("");
+  //   setPassword("");
+  //   setUserType("");
+
+  //   fetch(" http://localhost:5001/users", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       email,
+  //       password,
+  //       userType,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.error) {
+  //         console.log(response.message);
+  //       } else {
+  //         if (userType === "Admin") {
+  //           navigate("/admin");
+  //         } else if (userType === "Educator") {
+  //           navigate("/educator");
+  //         } else if (userType === "Student") {
+  //           navigate("/student");
+  //         } else {
+  //           console.log("Invalid user type");
+  //         }
+  //       }
+  //     });
+  // };
 
   return (
     <div>
@@ -56,7 +106,7 @@ function Login() {
         </a>
 
         <div className="w-full max-w-sm p-4 bg-white border border-black rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" action="#" onSubmit={ProceedLogin}>
+          <form className="space-y-6" action="#" onSubmit={handleSubmit}>
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign in to our platform
             </h5>
