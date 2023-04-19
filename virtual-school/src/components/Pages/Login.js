@@ -1,47 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../Pages/AuthContext";
+import {
+  // useNavigate,
+  NavLink,
+} from "react-router-dom";
 
 function Login() {
-  // const [login, setLogin] = useState()
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [userType, setUserType] = useState("student");
-  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const ProceedLogin = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    setEmail("");
-    setPassword("");
-    setUserType("");
-
-    fetch(" http://localhost:5001/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        password,
-        userType,
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.error) {
-          console.log(response.message);
-        } else {
-          if (userType === "Admin") {
-            navigate("/admin");
-          } else if (userType === "Educator") {
-            navigate("/educator");
-          } else if (userType === "Student") {
-            navigate("/student");
-          } else {
-            console.log("Invalid user type");
-          }
-        }
-      });
+    login(email, password);
   };
+
+  // console.log(login);
 
   return (
     <div>
@@ -56,13 +31,13 @@ function Login() {
         </a>
 
         <div className="w-full max-w-sm p-4 bg-white border border-black rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" action="#" onSubmit={ProceedLogin}>
+          <form className="space-y-6" action="#" onSubmit={handleSubmit}>
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign in to our platform
             </h5>
             <div>
               <label
-                // for="email"
+                for="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Your email
@@ -82,7 +57,7 @@ function Login() {
             </div>
             <div>
               <label
-                // for="password"
+                for="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Your password
@@ -99,24 +74,7 @@ function Login() {
               />
             </div>
             <div className="flex items-start">
-              <div className="flex items-start">
-                <div className="flex flex-col ml-10 rounded-2xl">
-                  <label className="">
-                    Login as
-                    <select
-                      className="p-1 border"
-                      value={userType}
-                      onChange={(e) => setUserType(e.target.value)}
-                      style={{ marginLeft: "5px" }}
-                    >
-                      <option value="Select">Select</option>
-                      <option value="Admin">Admin</option>
-                      <option value="Educator">Educator</option>
-                      <option value="Student">Student</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
+              <div className="flex items-start"></div>
             </div>
             <div></div>
             <button

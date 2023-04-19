@@ -18,11 +18,11 @@ function Landing() {
           Hello and welcome to
         </h1>
         <div
-          className=" text-yellow-500 font-black"
+          className=" text-orange-500 font-black"
           style={{ marginLeft: "230px" }}
         >
           <Typewriter
-            className="text-yellow-400"
+            className="text-orange-500"
             options={{
               strings: [
                 "Your dream school where you can",
@@ -54,7 +54,7 @@ function Landing() {
               className="text-5xl text-white font-bold pb-5 pl-0"
               style={{ paddingLeft: "0px" }}
             >
-              V<span className="text-5xl text-yellow-400 ">S </span>
+              V<span className="text-5xl text-orange-500 ">S </span>
             </h1>
           </NavLink>
           <ul className="space-y-2 font-medium">
