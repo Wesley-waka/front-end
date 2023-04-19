@@ -16,7 +16,7 @@ function StudentDashboard() {
   return (
     <>
       <div
-        className="text-center text-5xl text-bold max-h-screen"
+        className="text-center text-5xl text-bold max-h-screen max-sm"
         style={{
           marginTop: "100px",
           backgroundImage: "https://bit.ly/3GP68X0",
