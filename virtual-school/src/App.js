@@ -10,6 +10,12 @@ import StudentDashboard from "./components/Pages/StudentDashboard";
 import Login from "./components/Pages/Login";
 import SignUp from "./components/Pages/SignUp";
 import AuthProvider from "./components/Pages/AuthContext";
+import SchoolEntry from "./components/Pages/SchoolEntry";
+import CourseEntry from "./components/Pages/CourseEntry";
+import EducatorEntry from "./components/Pages/EducatorEntry";
+import StudentEntry from "./components/Pages/StudentEntry";
+
+
 
 function App() {
   return (
@@ -17,9 +23,12 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Landing />} />
+        <Route path="/admin/student" element={<StudentEntry />} />
+        <Route path="/admin/course" element={<CourseEntry />} />
+        <Route path="/admin/educator" element={<EducatorEntry />} />
 
           <Route path="/student" element={<StudentDashboard />} />
-
+        <Route path="/admin/school" element={<SchoolEntry />} />
           <Route path="/student/resources" element={<Resource />} />
           <Route path="student/exams" element={<Exam />} />
           <Route path="student/results" element={<Result />} />
