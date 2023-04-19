@@ -1,97 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import React, { useContext, useState } from "react";
-// import { AuthContext } from "./AuthContext";
-
-import {  NavLink } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../Pages/AuthContext";
+import {
+  // useNavigate,
+  NavLink,
+} from "react-router-dom";
 
 function Login() {
-  // const [login, setLogin] = useState()
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [userType, setUserType] = useState("student");
-  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  // const { login } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  
-    fetch("/login",{
-      method: "POST",
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email, password, userType
-      })
-    })
-    .then(response => response.json())
-    .then(response => {
-      if (response.error) {
-        // Show an error message
-        console.log(response.message);
-        
-      } else {
-        localStorage.setItem("token", response.jwt);
-        console.log(response)
-         // Navigate to the appropriate component
-        // Swal({
-        //   title: "Success!",
-        //   text: "LoggedIn successfully.",
-        //   icon: "success",
-        //   button: "OK",
-        // });
-       
-        if (userType === "Admin") {
-          navigate("/admin");
-        } else if (userType === "Educator" ){
-          navigate("/educator");
-        } else {
-          navigate("/student");
-        }
-        
-      }
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email, password);
   };
 
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-
-  // const ProceedLogin = (e) => {
-  //   e.preventDefault();
-
-  //   setEmail("");
-  //   setPassword("");
-  //   setUserType("");
-
-  //   fetch(" http://localhost:5001/users", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({
-  //       email,
-  //       password,
-  //       userType,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       console.log(response);
-  //       if (response.error) {
-  //         console.log(response.message);
-  //       } else {
-  //         if (userType === "Admin") {
-  //           navigate("/admin");
-  //         } else if (userType === "Educator") {
-  //           navigate("/educator");
-  //         } else if (userType === "Student") {
-  //           navigate("/student");
-  //         } else {
-  //           console.log("Invalid user type");
-  //         }
-  //       }
-  //     });
-  // };
+  // console.log(login);
 
   return (
     <div>
@@ -101,7 +26,7 @@ function Login() {
             className="text-5xl text-blue-800 font-bold pb-5 pl-20"
             style={{ paddingLeft: "140px" }}
           >
-            V<span className="text-5xl text-yellow-400 ">S </span>
+            V<span className="text-5xl text-orange-500 ">S </span>
           </h1>
         </a>
 
@@ -112,7 +37,7 @@ function Login() {
             </h5>
             <div>
               <label
-                // for="email"
+                for="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Your email
@@ -132,7 +57,7 @@ function Login() {
             </div>
             <div>
               <label
-                // for="password"
+                for="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Your password
@@ -149,24 +74,7 @@ function Login() {
               />
             </div>
             <div className="flex items-start">
-              <div className="flex items-start">
-                <div className="flex flex-col ml-10 rounded-2xl">
-                  <label className="">
-                    Login as
-                    <select
-                      className="p-1 border"
-                      value={userType}
-                      onChange={(e) => setUserType(e.target.value)}
-                      style={{ marginLeft: "5px" }}
-                    >
-                      <option value="Select">Select</option>
-                      <option value="Admin">Admin</option>
-                      <option value="Educator">Educator</option>
-                      <option value="Student">Student</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
+              <div className="flex items-start"></div>
             </div>
             <div></div>
             <button

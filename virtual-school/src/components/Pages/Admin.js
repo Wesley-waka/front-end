@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import heroBcg from '../images/hero-bcg.jpg';
 import heroBcg2 from '../images/hero-bcg-2.jpg';

@@ -11,7 +11,7 @@ function Resource() {
     <div>
       {/* <StudentDashboard /> */}
 
-      <div className="flex gap-10 pt-5 pl-20" style={{ marginLeft: "200px" }}>
+      <div className="flex gap-10 pt-20 pl-20" style={{ marginLeft: "200px", paddingTop: "100px" }}>
         {/* CARD 1 */}
 
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -54,7 +54,7 @@ function Resource() {
 
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="/">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-yellow-500 dark:text-white">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white">
               Book 3
             </h5>
           </a>
@@ -63,7 +63,7 @@ function Resource() {
           </p>
           <a
             href="/"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-500 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             View
           </a>
@@ -71,11 +71,12 @@ function Resource() {
       </div>
 
       {/* SIDE BAR  */}
-      <div className="bg-orange-400 absolute top-0  h-20" style={{ left: 200 }}>
+      <div className="bg-orange-500 absolute top-0  h-20" style={{ left: 200, paddingRight:"587px" }}>
         {/* <div className="container mx-auto flex items-center justify-between px-4 py-3"> */}
-        <div className=" text-4xl xl:font-bold font-weight: 600 px-20 py-5">
-          Administrator
+        <div className=" text-4xl xl:font-bold font-weight: 600 pt-5 pb-3 text-center pl-20" style={{ paddingLeft:"373px", fontSize:"70px" }}>
+         student
         </div>
+        
 
         <div
           className="text-center text-5xl text-bold max-h-screen"
@@ -100,7 +101,7 @@ function Resource() {
                   className="text-5xl text-white font-bold pb-5 pl-0"
                   style={{ paddingLeft: "0px" }}
                 >
-                  V<span className="text-5xl text-yellow-400 ">S </span>
+                  V<span className="text-5xl text-orange-500 ">S </span>
                 </h1>
               </NavLink>
               <ul className="space-y-2 font-medium">
@@ -160,6 +161,7 @@ function Resource() {
                   <NavLink
                     className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                     to="/login"
+                    style={{marginTop: "200px"}}
                   >
                     <div className="text-xl">
                       <FaSignOutAlt />
@@ -169,7 +171,7 @@ function Resource() {
                     </span>
                   </NavLink>
                 </li>
-                <div style={{ paddingTop: "200px" }}>
+                <div style={{ paddingTop: "20px" }}>
                   <hr className="border-4"></hr>
                 </div>
               </ul>
