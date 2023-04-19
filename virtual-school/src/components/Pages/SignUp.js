@@ -23,7 +23,7 @@ function SignUp() {
               Sign up to our platform
             </h5>
 
-            <div>
+            {/* <div>
               <label
                 for="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -38,7 +38,7 @@ function SignUp() {
                 placeholder="Rawllings Tallam"
                 required
               />
-            </div>
+            </div> */}
 
             <div>
               <label
@@ -69,6 +69,22 @@ function SignUp() {
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
+            </div>
+             <div>
+              <label
+                for="email"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Level
+              </label>
+              <input
+                type="text"
+                name="level"
+                id="level"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="admin"
                 required
               />
             </div>
