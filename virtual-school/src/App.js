@@ -40,7 +40,7 @@ function App() {
           <Route path="/educator" element={<EducatorDashboard />} /> 
           <Route path="/educator/add-resources" element={<AddResource />} /> 
           <Route path="/educator/schedule-exam" element={<ScheduleExam />} /> 
-          <Route path="/educator/attendance" element={<Attendance/>} />          
+          {/* <Route path="/educator/attendance" element={<Attendance/>} />           */}
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
