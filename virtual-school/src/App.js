@@ -15,7 +15,7 @@ import CourseEntry from "./components/Pages/CourseEntry";
 import EducatorEntry from "./components/Pages/EducatorEntry";
 import StudentEntry from "./components/Pages/StudentEntry";
 import Educator from "./components/Pages/Educator";
-import Examschedule from "./components/Pages/Examschedule";import EducatorDashboard from "./components/Pages/EducatorDashboard";
+import EducatorDashboard from "./components/Pages/EducatorDashboard";
 import Attendance from "./components/Pages/Attendance";
 import ScheduleExam from "./components/Pages/ScheduleExam";
 import AddResource from "./components/Pages/AddResource";
@@ -27,6 +27,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/admin" element={<Admin />} />
         <Route path="/admin/student" element={<StudentEntry />} />
         <Route path="/admin/course" element={<CourseEntry />} />
         <Route path="/admin/educator" element={<EducatorEntry />} />
@@ -45,7 +46,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/educator" element={<Educator/>} />
-          <Route path="/educator/examschedule" element={<Examschedule/>} />
+          
           
         </Routes>
       </AuthProvider>
