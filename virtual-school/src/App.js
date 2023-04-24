@@ -29,8 +29,6 @@ import SignUp from "./components/Pages/SignUp";
 import AllCourse from "./components/Pages/AllCourse";
 
 function App() {
-
-
   const token = localStorage.getItem("jwt");
 
   const [resource, setResource] = useState();
@@ -54,6 +52,35 @@ function App() {
 
 
 
+  useEffect(() => {
+    fetch("/resources", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res)
+        setResource(res);
+      });
+  }, [token]);
+
+  const [schools, setSchools] = useState([]);
+  const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+
+  useEffect(() => {
+    fetch("/schools", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setSchools(data));
+  }, []);
 
   return (
 
@@ -67,15 +94,11 @@ function App() {
           <Route path="/admin/student" element={<StudentEntry />} />
           <Route path="/admin/course" element={<CourseEntry />} />
           <Route path="/admin/educator" element={<EducatorEntry />} />
-          <Route path="/admin/allcourse" element={<AllCourse />} />
 
           <Route path="/student" element={<StudentDashboard />} />
           <Route path="/admin/school" element={<SchoolEntry />} />
           <Route path="/student/resources" element={<Resource resource={resource} />} />
           <Route path="student/exams" element={<Exam />} />
-
-          {/* <Route path="student/test" element={<Test />} /> */}
-
           <Route path="student/exam-page" element={<ExamPage />} />
           <Route path="student/results" element={<Result />} />
           <Route path="student/chat" element={<Chat />} />
@@ -85,7 +108,16 @@ function App() {
           <Route path="/educator/schedule-exam" element={<ScheduleExam />} />
           <Route path="/educator/attendance" element={<Attendance />} />
 
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                schools={schools}
+                selectedSchoolId={selectedSchoolId}
+                setSelectedSchoolId={setSelectedSchoolId}
+              />
+            }
+          />
           <Route path="/signup" element={<SignUp />} />
 
 
