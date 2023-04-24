@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Pages/AuthContext";
 import {
   // useNavigate,
@@ -11,10 +11,32 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // const [schools, setSchools] = useState([]);
+  // const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+
+  // const token = localStorage.getItem("jwt");
+
+  // useEffect(() => {
+  //   fetch("/schools", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => setSchools(data));
+  // }, [token]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password);
   };
+
+  // const handleSchoolSelect = (event) => {
+  //   const schoolId = event.target.value;
+  //   setSelectedSchoolId(schoolId);
+  // };
 
   // console.log(login);
 
@@ -76,7 +98,20 @@ function Login() {
             <div className="flex items-start">
               <div className="flex items-start"></div>
             </div>
-            <div></div>
+            <div>
+              <div>
+                {/* <select value={selectedSchoolId} onChange={handleSchoolSelect}>
+                  {" "}
+                  <option value="">Select a school</option>{" "}
+                  {schools.map((school) => (
+                    <option key={school.id} value={school.id}>
+                      {school.school_name}
+                    </option>
+                  ))}
+                </select> */}
+                {/* <p>Selected school ID: {selectedSchoolId}</p> */}
+              </div>
+            </div>
             <button
               type="submit"
               className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -100,3 +135,35 @@ function Login() {
 }
 
 export default Login;
+
+// import React, { useState, useEffect } from 'react';
+
+// function SchoolSelector() {
+//   const [schools, setSchools] = useState([]);
+//   const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+
+//   useEffect(() => {
+//     fetch('/schools')
+//       .then(response => response.json())
+//       .then(data => setSchools(data));
+//   }, []);
+
+//   const handleSchoolSelect = event => {
+//     const schoolId = event.target.value;
+//     setSelectedSchoolId(schoolId);
+//   };
+
+//   return (
+//     <div>
+//       <select value={selectedSchoolId} onChange={handleSchoolSelect}>
+//         <option value="">Select a school</option>
+//         {schools.map(school => (
+//           <option key={school.id} value={school.id}>
+//             {school.school_name}
+//           </option>
+//         ))}
+//       </select>
+//       <p>Selected school ID: {selectedSchoolId}</p>
+//     </div>
+//   );
+// }

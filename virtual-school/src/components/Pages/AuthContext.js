@@ -38,6 +38,8 @@ export default function AuthProvider({ children }) {
         setOnChange(!change);
         setUser(user);
         localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("jwt", response.jwt);
+        localStorage.setItem("email", response.user.email);
 
         if (response.error) {
           const Toast = Swal.mixin({

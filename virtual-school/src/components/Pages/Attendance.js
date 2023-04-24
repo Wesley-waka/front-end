@@ -11,7 +11,7 @@ function Attendance() {
     <div
     className="text-center text-5xl text-bold max-h-screen max-sm"
     style={{
-      marginTop: "100px",
+      marginTop: "1 0px",
       backgroundImage: "https://bit.ly/3GP68X0",
     }}
   >

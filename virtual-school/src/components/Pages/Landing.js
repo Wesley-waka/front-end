@@ -3,17 +3,33 @@ import Typewriter from "typewriter-effect";
 import { NavLink } from "react-router-dom";
 import "../Pages/Dashboard.css";
 import { MdOutlineLogin } from "react-icons/md";
-import { GoSignIn } from "react-icons/go";
+// import { GoSignIn } from "react-icons/go";
 
 
 function Landing() {
+
+
+
+  const styles = {
+    backgroundImage: 'src/components/images/hero-bcg.jpg")',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+  };
+
+
   return (
     <div
       className="text-center text-5xl text-bold max-h-screen"
       style={{ marginTop: "100px" }}
+      // style={styles}
     >
-      <div className="">
-        <h1 className="pb-20 font-extrabold" style={{ marginLeft: "200px" }}>
+      <div className="" >
+
+
+
+
+        <h1 className="pb-20 font-extrabold" style={{ marginLeft: "200px", styles }}>
           {" "}
           Hello and welcome to
         </h1>
@@ -25,14 +41,16 @@ function Landing() {
             className="text-orange-500"
             options={{
               strings: [
-                "Your dream school where you can",
-                "your dream to learn.",
+                "Virtual classroom.",
+                "",
               ],
               autoStart: true,
               loop: true,
             }}
           />
         </div>
+
+
       </div>
 
 
@@ -66,6 +84,7 @@ function Landing() {
 
             <li>
               <NavLink
+              style={{ marginTop:"400px" }}
                 to="/login"
                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
               >
@@ -76,7 +95,7 @@ function Landing() {
               </NavLink>
             </li>
 
-            <li>
+            {/* <li>
               <NavLink
                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-black dark:hover:bg-gray-700"
                 to="/signUp"
@@ -86,8 +105,8 @@ function Landing() {
                 </div>
                 <span className="flex-1 ml-3 text-2xl text-start">Sign Up</span>
               </NavLink>
-            </li>
-            <div style={{ paddingTop: "370px" }}>
+            </li> */}
+            <div style={{ paddingTop: "10px" }}>
               <hr className="border-4 items-center pr-10"></hr>
             </div>
           </ul>

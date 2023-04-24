@@ -15,7 +15,7 @@ function AddResource() {
         backgroundImage: "https://bit.ly/3GP68X0",
       }}
     >
-      <div style={{ paddingTop: "100px", marginLeft:"300px", marginRight:"300px", paddingLeft:"200px"}}>
+      <div style={{ paddingTop: "10px", marginLeft:"300px", marginRight:"300px", paddingLeft:"200px"}}>
                   <form>
                           <div class="mb-6">
                             <label for="topic" class="block mb-2 text-sm font-medium text-black">
