@@ -26,49 +26,51 @@ import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
 import SignUp from "./components/Pages/SignUp";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
+import AllCourse from "./components/Pages/AllCourse";
 
 function App() {
 
 
   const token = localStorage.getItem("jwt");
 
-const [ resource, setResource] = useState();
+  const [resource, setResource] = useState();
 
-useEffect( () => {
-  fetch("/resources", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
-    },
-  })
-  
-  .then(res => res.json())
-  .then(res => {
-    // console.log(res)
-    setResource(res)
-  })
-}, [token])
+  useEffect(() => {
+    fetch("/resources", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+    })
+
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res)
+        setResource(res)
+      })
+  }, [token])
 
 
 
 
 
   return (
-   
+
     <BrowserRouter>
       <AuthProvider>
         <Routes>
           {/* <Route path="/swiper" element={<Swipper />} /> */}
-          <Route path="/" element={<Home/>}/>
-          <Route path="/landing" element={<Landing/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/landing" element={<Landing />} />
           <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/student" element={<StudentEntry />} />
-        <Route path="/admin/course" element={<CourseEntry />} />
-        <Route path="/admin/educator" element={<EducatorEntry />} />
+          <Route path="/admin/student" element={<StudentEntry />} />
+          <Route path="/admin/course" element={<CourseEntry />} />
+          <Route path="/admin/educator" element={<EducatorEntry />} />
+          <Route path="/admin/allcourse" element={<AllCourse />} />
 
           <Route path="/student" element={<StudentDashboard />} />
-        <Route path="/admin/school" element={<SchoolEntry />} />
+          <Route path="/admin/school" element={<SchoolEntry />} />
           <Route path="/student/resources" element={<Resource resource={resource} />} />
           <Route path="student/exams" element={<Exam />} />
 
@@ -90,12 +92,12 @@ useEffect( () => {
 
 
 
-          <Route path="/educator" element={<Educator/>} />
+          <Route path="/educator" element={<Educator />} />
 
-          <Route path="/plagiarism" element={<PlagiarismChecker/>} />
+          <Route path="/plagiarism" element={<PlagiarismChecker />} />
 
-          
-          
+
+
         </Routes>
       </AuthProvider>
     </BrowserRouter>
