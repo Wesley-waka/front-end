@@ -28,29 +28,11 @@ import SignUp from "./components/Pages/SignUp";
 // import Swipper from "./components/Pages/Swipper";
 import AllCourse from "./components/Pages/AllCourse";
 
+
 function App() {
   const token = localStorage.getItem("jwt");
 
   const [resource, setResource] = useState();
-
-  useEffect(() => {
-    fetch("/resources", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    })
-
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res)
-        setResource(res)
-      })
-  }, [token])
-
-
-
 
   useEffect(() => {
     fetch("/resources", {
@@ -83,7 +65,6 @@ function App() {
   }, []);
 
   return (
-
     <BrowserRouter>
       <AuthProvider>
         <Routes>
@@ -91,13 +72,18 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/student" element={<StudentEntry />} />
-          <Route path="/admin/course" element={<CourseEntry />} />
-          <Route path="/admin/educator" element={<EducatorEntry />} />
+          <Route path="/admin/student" element={<StudentEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/course" element={<CourseEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/educator" element={<EducatorEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/allcourse" element={<AllCourse schoolId={selectedSchoolId} />} />
+
+          <Route path="/admin/school" element={<SchoolEntry />} />
 
           <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/admin/school" element={<SchoolEntry />} />
-          <Route path="/student/resources" element={<Resource resource={resource} />} />
+          <Route
+            path="/student/resources"
+            element={<Resource resource={resource} />}
+          />
           <Route path="student/exams" element={<Exam />} />
           <Route path="student/exam-page" element={<ExamPage />} />
           <Route path="student/results" element={<Result />} />
@@ -120,16 +106,9 @@ function App() {
           />
           <Route path="/signup" element={<SignUp />} />
 
-
-
-
-
           <Route path="/educator" element={<Educator />} />
 
           <Route path="/plagiarism" element={<PlagiarismChecker />} />
-
-
-
         </Routes>
       </AuthProvider>
     </BrowserRouter>
