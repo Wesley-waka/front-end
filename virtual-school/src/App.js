@@ -21,6 +21,7 @@ import ScheduleExam from "./components/Pages/ScheduleExam";
 import AddResource from "./components/Pages/AddResource";
 // import ExamTimer from "./components/Pages/ExamTimer";
 import ExamPage from "./components/Pages/ExamPage";
+import Home from "./components/Pages/Home";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
 
@@ -31,7 +32,8 @@ function App() {
       <AuthProvider>
         <Routes>
           {/* <Route path="/swiper" element={<Swipper />} /> */}
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/landing" element={<Landing/>}/>
           <Route path="/admin" element={<Admin />} />
         <Route path="/admin/student" element={<StudentEntry />} />
         <Route path="/admin/course" element={<CourseEntry />} />
