@@ -7,6 +7,9 @@ import { AuthContext } from "../Pages/AuthContext";
 
 function StudentSideBar() {
   const { logout } = useContext(AuthContext);
+
+  const email = localStorage.getItem("email");
+
   return (
     <>
       <div
@@ -50,6 +53,8 @@ function StudentSideBar() {
                 </h1>
               </NavLink>
               <ul className="space-y-2 font-medium">
+                <li>{email ? <h1 className="text-xs pb-3">Welcome {email}</h1> : null}</li>
+
                 <li>
                   <NavLink
                     to="/student/resources"
@@ -122,7 +127,7 @@ function StudentSideBar() {
                     </span>
                   </NavLink>
                 </li>
-                <div style={{ paddingTop: "20px" }}>
+                <div style={{ paddingTop: "5px" }}>
                   <hr className="border-4"></hr>
                 </div>
               </ul>

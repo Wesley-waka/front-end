@@ -1,5 +1,6 @@
 import React from "react";
 import LoginDashboard from "./LoginDashboard";
+import PlagiarismChecker from "./PlagiarismChecker";
 import StudentSideBar from "./StudentSideBar";
 function Chat() {
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
@@ -7,6 +8,7 @@ function Chat() {
     <>
     { isLoggedIn ? (
       <div>
+        <PlagiarismChecker />
         <StudentSideBar />
       </div>
     )

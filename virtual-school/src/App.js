@@ -1,4 +1,4 @@
-// import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Chat from "./components/Pages/Chat";
@@ -21,10 +21,38 @@ import ScheduleExam from "./components/Pages/ScheduleExam";
 import AddResource from "./components/Pages/AddResource";
 // import ExamTimer from "./components/Pages/ExamTimer";
 import ExamPage from "./components/Pages/ExamPage";
+import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
+import SignUp from "./components/Pages/SignUp";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
 
 function App() {
+
+
+  const token = localStorage.getItem("jwt");
+
+const [ resource, setResource] = useState();
+
+useEffect( () => {
+  fetch("/resources", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+  })
+  
+  .then(res => res.json())
+  .then(res => {
+    // console.log(res)
+    setResource(res)
+  })
+}, [token])
+
+
+
+
+
   return (
    
     <BrowserRouter>
@@ -39,7 +67,7 @@ function App() {
 
           <Route path="/student" element={<StudentDashboard />} />
         <Route path="/admin/school" element={<SchoolEntry />} />
-          <Route path="/student/resources" element={<Resource />} />
+          <Route path="/student/resources" element={<Resource resource={resource} />} />
           <Route path="student/exams" element={<Exam />} />
 
           {/* <Route path="student/test" element={<Test />} /> */}
@@ -54,7 +82,16 @@ function App() {
           <Route path="/educator/attendance" element={<Attendance />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+
+
+
+
+
           <Route path="/educator" element={<Educator/>} />
+
+          <Route path="/plagiarism" element={<PlagiarismChecker/>} />
+
           
           
         </Routes>
