@@ -1,42 +1,31 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext,} from "react";
 import { AuthContext } from "../Pages/AuthContext";
 import {
   // useNavigate,
   NavLink,
 } from "react-router-dom";
 
-function Login() {
+function Login( { schools, selectedSchoolId, setSelectedSchoolId} ) {
   const { login } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [schools, setSchools] = useState([]);
-  // const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+
 
   // const token = localStorage.getItem("jwt");
 
-  // useEffect(() => {
-  //   fetch("/schools", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => setSchools(data));
-  // }, [token]);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password);
   };
 
-  // const handleSchoolSelect = (event) => {
-  //   const schoolId = event.target.value;
-  //   setSelectedSchoolId(schoolId);
-  // };
+  const handleSchoolSelect = (event) => {
+    const schoolId = event.target.value;
+    setSelectedSchoolId(schoolId);
+  };
 
   // console.log(login);
 
@@ -100,16 +89,39 @@ function Login() {
             </div>
             <div>
               <div>
-                {/* <select value={selectedSchoolId} onChange={handleSchoolSelect}>
+                <select value={selectedSchoolId} onChange={handleSchoolSelect}>
                   {" "}
                   <option value="">Select a school</option>{" "}
-                  {schools.map((school) => (
+
+                  {/* <div class="card">
+        {Array.isArray(reviews)
+          ? reviews.map((review, index) => {
+              return (
+                <div key={index} style={{ width: "18rem;" }}>
+                  <h5 class="card-header">Comment</h5>
+                  <div class="card-body">
+                    <p class="card-text">{review.comment}</p>
+                    <a href="/" class="btn btn-primary">
+                      Update
+                    </a>
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
+    </> */}
+
+
+
+
+                  {schools && schools.map((school) => (
                     <option key={school.id} value={school.id}>
                       {school.school_name}
                     </option>
                   ))}
-                </select> */}
-                {/* <p>Selected school ID: {selectedSchoolId}</p> */}
+                </select>
+                <p>Selected school ID: {selectedSchoolId}</p>
               </div>
             </div>
             <button
