@@ -7,6 +7,13 @@ import { AuthContext } from "../Pages/AuthContext";
 
 function AddResource() {
   const { logout } = useContext(AuthContext);
+
+
+
+
+
+
+  
   return (
     <div
       className="text-center text-5xl text-bold max-h-screen max-sm"
