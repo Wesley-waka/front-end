@@ -26,6 +26,8 @@ import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
 import SignUp from "./components/Pages/SignUp";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
+import AllCourse from "./components/Pages/AllCourse";
+
 
 function App() {
   const token = localStorage.getItem("jwt");
@@ -69,11 +71,13 @@ function App() {
           {/* <Route path="/swiper" element={<Swipper />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<Landing />} />
-          <Route path="/admin" element={<Admin /> } />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/admin/student" element={<StudentEntry schoolId={selectedSchoolId} />} />
           <Route path="/admin/course" element={<CourseEntry schoolId={selectedSchoolId} />} />
-          <Route path="/admin/educator" element={<EducatorEntry schoolId={selectedSchoolId}/>} />
-          <Route path="/admin/school" element={<SchoolEntry  />} />
+          <Route path="/admin/educator" element={<EducatorEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/allcourse" element={<AllCourse schoolId={selectedSchoolId} />} />
+
+          <Route path="/admin/school" element={<SchoolEntry />} />
 
           <Route path="/student" element={<StudentDashboard />} />
           <Route
