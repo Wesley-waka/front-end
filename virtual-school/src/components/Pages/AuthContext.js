@@ -34,14 +34,42 @@ export default function AuthProvider({ children }) {
       .then((res) => res.json())
       .then((response) => {
         console.log(response);
-        const { jwt, user } = response;
-        setOnChange(!change);
-        setUser(user);
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("jwt", response.jwt);
-        localStorage.setItem("email", response.user.email);
+        // const { user, jwt } = response;
+        // setOnChange(!change);
+        // setUser(response.user);
+        // console.log(user)
+        // localStorage.setItem("user", JSON.stringify(user));
+        // localStorage.setItem("jwt", response.jwt);
+        // localStorage.setItem("email", response.user.email);
+        if (response.student) {
+          setOnChange(!change);
+          setUser(response.student);
+          console.log(user)
+          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("jwt", response.jwt);
+          localStorage.setItem("email", user.email);
+          sessionStorage.setItem("jwtToken", response.jwt);
+          navigate("/student")
 
-        if (response.error) {
+        } else if (response.admin) {
+          setOnChange(!change);
+          setUser(response.admin);
+          console.log(user)
+          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("jwt", response.jwt);
+          localStorage.setItem("email", user.email);
+          navigate("/admin")
+
+        } else if(response.educator) {
+          setOnChange(!change);
+          setUser(response.educator);
+          console.log(user)
+          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("jwt", response.jwt);
+          localStorage.setItem("email", user.email);
+          navigate("/educator")
+
+        } else if (response.error) {
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -58,65 +86,66 @@ export default function AuthProvider({ children }) {
             title: "Oops...",
             text: response.error,
           });
-        } else {
-          setUser(user);
-          sessionStorage.setItem("jwtToken", jwt);
-          // localStorage.setItem("jwt", response.jwt);
-          if (response.user.level === "admin") {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "center",
-              showConfirmButton: false,
-              timer: 1000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: "success",
-              title: "Signed in successfully",
-            });
-            navigate("/admin");
-          } else if (response.user.level === "student") {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "center",
-              showConfirmButton: false,
-              timer: 1000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: "success",
-              title: "Signed in successfully",
-            });
-
-            navigate("/student");
-          } else {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "center",
-              showConfirmButton: false,
-              timer: 1000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: "success",
-              title: "Signed in successfully",
-            });
-
-            navigate("/educator");
-          }
         }
+        //  else {
+        //   setUser(user);
+        //   sessionStorage.setItem("jwtToken", jwt);
+        //   // localStorage.setItem("jwt", response.jwt);
+        //   if (response.user.level === "admin") {
+        //     const Toast = Swal.mixin({
+        //       toast: true,
+        //       position: "center",
+        //       showConfirmButton: false,
+        //       timer: 1000,
+        //       timerProgressBar: true,
+        //       didOpen: (toast) => {
+        //         toast.addEventListener("mouseenter", Swal.stopTimer);
+        //         toast.addEventListener("mouseleave", Swal.resumeTimer);
+        //       },
+        //     });
+        //     Toast.fire({
+        //       icon: "success",
+        //       title: "Signed in successfully",
+        //     });
+        //     navigate("/admin");
+        //   } else if (response.user.level === "student") {
+        //     const Toast = Swal.mixin({
+        //       toast: true,
+        //       position: "center",
+        //       showConfirmButton: false,
+        //       timer: 1000,
+        //       timerProgressBar: true,
+        //       didOpen: (toast) => {
+        //         toast.addEventListener("mouseenter", Swal.stopTimer);
+        //         toast.addEventListener("mouseleave", Swal.resumeTimer);
+        //       },
+        //     });
+        //     Toast.fire({
+        //       icon: "success",
+        //       title: "Signed in successfully",
+        //     });
+
+        //     navigate("/student");
+        //   } else {
+        //     const Toast = Swal.mixin({
+        //       toast: true,
+        //       position: "center",
+        //       showConfirmButton: false,
+        //       timer: 1000,
+        //       timerProgressBar: true,
+        //       didOpen: (toast) => {
+        //         toast.addEventListener("mouseenter", Swal.stopTimer);
+        //         toast.addEventListener("mouseleave", Swal.resumeTimer);
+        //       },
+        //     });
+        //     Toast.fire({
+        //       icon: "success",
+        //       title: "Signed in successfully",
+        //     });
+
+        //     navigate("/educator");
+        //   }
+        // }
       });
   };
   // Register
