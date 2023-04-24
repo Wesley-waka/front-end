@@ -66,14 +66,11 @@ useEffect( () => {
         <Route path="/admin/student" element={<StudentEntry />} />
         <Route path="/admin/course" element={<CourseEntry />} />
         <Route path="/admin/educator" element={<EducatorEntry />} />
-
-          <Route path="/student" element={<StudentDashboard />} />
         <Route path="/admin/school" element={<SchoolEntry />} />
+
+          <Route path="/student" element={<StudentDashboard />} />   
           <Route path="/student/resources" element={<Resource resource={resource} />} />
           <Route path="student/exams" element={<Exam />} />
-
-          {/* <Route path="student/test" element={<Test />} /> */}
-
           <Route path="student/exam-page" element={<ExamPage />} />
           <Route path="student/results" element={<Result />} />
           <Route path="student/chat" element={<Chat />} />
