@@ -24,6 +24,7 @@ import ExamPage from "./components/Pages/ExamPage";
 import Home from "./components/Pages/Home";
 import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
 import SignUp from "./components/Pages/SignUp";
+import AttendanceList from "./components/Pages/AttendanceList";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
 import AllCourse from "./components/Pages/AllCourse";
@@ -93,7 +94,7 @@ function App() {
           <Route path="/educator/add-resources" element={<AddResource />} />
           <Route path="/educator/schedule-exam" element={<ScheduleExam />} />
           <Route path="/educator/attendance" element={<Attendance />} />
-
+          <Route path="/educator/:courseId/attendance/list" element={<AttendanceList/>} />
           <Route
             path="/login"
             element={

@@ -79,7 +79,7 @@ function EducatorSideBar() {
                     <BsGraphUp />
                   </div>
                   <span className="flex-1 ml-3 text-2xl text-start">
-                    Attendance
+                    My Courses
                   </span>
                 </NavLink>
               </li>
