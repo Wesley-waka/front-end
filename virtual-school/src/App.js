@@ -24,9 +24,11 @@ import ExamPage from "./components/Pages/ExamPage";
 import Home from "./components/Pages/Home";
 import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
 import SignUp from "./components/Pages/SignUp";
-
+import AttendanceList from "./components/Pages/AttendanceList";
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
+import AllCourse from "./components/Pages/AllCourse";
+
 
 function App() {
   const token = localStorage.getItem("jwt");
@@ -166,27 +168,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/admin" element={<Admin />} />
-          <Route
-            path="/admin/student"
-            element={<StudentEntry schoolId={selectedSchoolId} />}
-          />
-          <Route
-            path="/admin/course"
-            element={
-              <CourseEntry
-                educators={educators}
-                educatorId={selectedEducatorId}
-                setSelectedEducatorId={setSelectedEducatorId}
-                schoolId={selectedSchoolId}
-                examId={selectedExamId}
-                exams={exams}
-              />
-            }
-          />
-          <Route
-            path="/admin/educator"
-            element={<EducatorEntry schoolId={selectedSchoolId} />}
-          />
+          <Route path="/admin/student" element={<StudentEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/course" element={<CourseEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/educator" element={<EducatorEntry schoolId={selectedSchoolId} />} />
+          <Route path="/admin/allcourse" element={<AllCourse schoolId={selectedSchoolId} />} />
+
           <Route path="/admin/school" element={<SchoolEntry />} />
 
           <Route path="/student" element={<StudentDashboard />} />
@@ -203,7 +189,7 @@ function App() {
           <Route path="/educator/add-resources" element={<AddResource />} />
           <Route path="/educator/schedule-exam" element={<ScheduleExam />} />
           <Route path="/educator/attendance" element={<Attendance />} />
-
+          <Route path="/educator/:courseId/attendance/list" element={<AttendanceList/>} />
           <Route
             path="/login"
             element={
