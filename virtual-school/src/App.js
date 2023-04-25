@@ -33,6 +33,8 @@ import AllCourse from "./components/Pages/AllCourse";
 function App() {
   const token = localStorage.getItem("jwt");
 
+  // RECOURCES 
+
   const [resource, setResource] = useState();
 
   useEffect(() => {
@@ -50,6 +52,8 @@ function App() {
       });
   }, [token]);
 
+  // SCHOOLS 
+
   const [schools, setSchools] = useState([]);
   const [selectedSchoolId, setSelectedSchoolId] = useState(null);
 
@@ -64,6 +68,97 @@ function App() {
       .then((response) => response.json())
       .then((data) => setSchools(data));
   }, []);
+
+ 
+
+
+  // EDUCATORS 
+
+  const [educators, setEducators] = useState();
+  const [selectedEducatorId, setSelectedEducatorId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/educators", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setEducators(data));
+  }, [token]);
+
+
+  // COURSES 
+
+  const [courses, setCourses] = useState();
+  const [selectedCoursesId, setSelectedCoursesId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/courses", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setCourses(data));
+  }, [token]);
+
+  const courseId = Array.isArray(courses)? courses.map(course => {
+    return (
+      <div> {course.course_id} </div>
+    )
+   
+    
+  }) : null
+
+  // console.log(courseId)
+  
+
+  
+  // // STUDENT 
+  const [students, setStudents] = useState();
+  const [selectedStudentId, setSelectedStudentId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/courses", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setEducators(data));
+  }, [token]);
+
+
+  // EXAM 
+
+  const [exams, setExams] = useState();
+  const [selectedExamId, setSelectedExamId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/exams", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, [token]);
+
+
+
 
   return (
     <BrowserRouter>
@@ -88,7 +183,7 @@ function App() {
           <Route path="student/exams" element={<Exam />} />
           <Route path="student/exam-page" element={<ExamPage />} />
           <Route path="student/results" element={<Result />} />
-          <Route path="student/chat" element={<Chat />} />
+          <Route path="student/chat" element={<Chat coursesId={courseId}/>} />
 
           <Route path="/educator" element={<EducatorDashboard />} />
           <Route path="/educator/add-resources" element={<AddResource />} />
@@ -110,6 +205,9 @@ function App() {
           <Route path="/educator" element={<Educator />} />
 
           <Route path="/plagiarism" element={<PlagiarismChecker />} />
+
+
+
         </Routes>
       </AuthProvider>
     </BrowserRouter>

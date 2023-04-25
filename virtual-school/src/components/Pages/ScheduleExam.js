@@ -4,13 +4,16 @@ import EducatorLoginSideBar from "./EducatorLoginSideBar";
 import EducatorSideBar from "./EducatorSideBar";
 
 function ScheduleExam() {
-  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+  // const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+const email = sessionStorage.getItem("email");
+
+  // console.log(isLoggedIn);
 
   return (
 <>
 
 {
-  isLoggedIn ? (
+  email ? (
     <>
     <div
       className="text-center text-5xl text-bold max-h-screen max-sm"

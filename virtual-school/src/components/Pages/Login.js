@@ -1,4 +1,12 @@
+
+
+
+
+
+
 import React, { useState, useContext,} from "react";
+
+
 import { AuthContext } from "../Pages/AuthContext";
 import {
   // useNavigate,
@@ -10,6 +18,7 @@ function Login( { schools, selectedSchoolId, setSelectedSchoolId} ) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+ 
 
 
 
@@ -88,33 +97,12 @@ function Login( { schools, selectedSchoolId, setSelectedSchoolId} ) {
               <div className="flex items-start"></div>
             </div>
             <div>
+
+              
               <div>
                 <select value={selectedSchoolId} onChange={handleSchoolSelect}>
                   {" "}
                   <option value="">Select a school</option>{" "}
-
-                  {/* <div class="card">
-        {Array.isArray(reviews)
-          ? reviews.map((review, index) => {
-              return (
-                <div key={index} style={{ width: "18rem;" }}>
-                  <h5 class="card-header">Comment</h5>
-                  <div class="card-body">
-                    <p class="card-text">{review.comment}</p>
-                    <a href="/" class="btn btn-primary">
-                      Update
-                    </a>
-                  </div>
-                </div>
-              );
-            })
-          : null}
-      </div>
-    </> */}
-
-
-
-
                   {schools && schools.map((school) => (
                     <option key={school.id} value={school.id}>
                       {school.school_name}
@@ -148,34 +136,5 @@ function Login( { schools, selectedSchoolId, setSelectedSchoolId} ) {
 
 export default Login;
 
-// import React, { useState, useEffect } from 'react';
 
-// function SchoolSelector() {
-//   const [schools, setSchools] = useState([]);
-//   const [selectedSchoolId, setSelectedSchoolId] = useState(null);
-
-//   useEffect(() => {
-//     fetch('/schools')
-//       .then(response => response.json())
-//       .then(data => setSchools(data));
-//   }, []);
-
-//   const handleSchoolSelect = event => {
-//     const schoolId = event.target.value;
-//     setSelectedSchoolId(schoolId);
-//   };
-
-//   return (
-//     <div>
-//       <select value={selectedSchoolId} onChange={handleSchoolSelect}>
-//         <option value="">Select a school</option>
-//         {schools.map(school => (
-//           <option key={school.id} value={school.id}>
-//             {school.school_name}
-//           </option>
-//         ))}
-//       </select>
-//       <p>Selected school ID: {selectedSchoolId}</p>
-//     </div>
-//   );
 // }

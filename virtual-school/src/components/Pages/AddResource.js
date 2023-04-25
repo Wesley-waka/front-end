@@ -4,6 +4,8 @@ import EducatorSideBar from "./EducatorSideBar";
 function AddResource() {
 
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+  // const email = sessionStorage.getItem("email");
+  // console.log(email);
 
   return (
     <>
