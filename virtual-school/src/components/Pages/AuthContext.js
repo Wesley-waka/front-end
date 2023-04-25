@@ -48,8 +48,10 @@ export default function AuthProvider({ children }) {
           localStorage.setItem("user", JSON.stringify(user));
           localStorage.setItem("jwt", response.jwt);
           localStorage.setItem("email", user.email);
+          // localStorage.setItem("school_name", school.school_name);
           sessionStorage.setItem("jwtToken", response.jwt);
           navigate("/student")
+          // console.log(response)
 
         } else if (response.admin) {
           setOnChange(!change);

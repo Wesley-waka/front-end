@@ -3,7 +3,7 @@ import Dashboard from "./Dashboard";
 import aboutImg from '../images/hero-bcg-3.jpg'
 import styled from 'styled-components';
 import { FaSchool, FaChalkboardTeacher } from "react-icons/fa";
-import { MdOutlineSchool, MdOutlineLogin } from "react-icons/md";
+import { MdOutlineSchool } from "react-icons/md";
 import { BsBook, BsTable } from "react-icons/bs";
 
 function SchoolEntry() {

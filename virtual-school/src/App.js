@@ -24,11 +24,14 @@ import ExamPage from "./components/Pages/ExamPage";
 import Home from "./components/Pages/Home";
 import PlagiarismChecker from "./components/Pages/PlagiarismChecker";
 import SignUp from "./components/Pages/SignUp";
+
 // import Test from "./components/Pages/Test";
 // import Swipper from "./components/Pages/Swipper";
 
 function App() {
   const token = localStorage.getItem("jwt");
+
+  // RECOURCES 
 
   const [resource, setResource] = useState();
 
@@ -47,6 +50,8 @@ function App() {
       });
   }, [token]);
 
+  // SCHOOLS 
+
   const [schools, setSchools] = useState([]);
   const [selectedSchoolId, setSelectedSchoolId] = useState(null);
 
@@ -62,6 +67,97 @@ function App() {
       .then((data) => setSchools(data));
   }, []);
 
+ 
+
+
+  // EDUCATORS 
+
+  const [educators, setEducators] = useState();
+  const [selectedEducatorId, setSelectedEducatorId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/educators", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setEducators(data));
+  }, [token]);
+
+
+  // COURSES 
+
+  const [courses, setCourses] = useState();
+  const [selectedCoursesId, setSelectedCoursesId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/courses", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setCourses(data));
+  }, [token]);
+
+  const courseId = Array.isArray(courses)? courses.map(course => {
+    return (
+      <div> {course.course_id} </div>
+    )
+   
+    
+  }) : null
+
+  // console.log(courseId)
+  
+
+  
+  // // STUDENT 
+  const [students, setStudents] = useState();
+  const [selectedStudentId, setSelectedStudentId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/courses", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setEducators(data));
+  }, [token]);
+
+
+  // EXAM 
+
+  const [exams, setExams] = useState();
+  const [selectedExamId, setSelectedExamId] = useState(null);
+
+
+  useEffect(() => {
+    fetch("/exams", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, [token]);
+
+
+
+
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -69,11 +165,29 @@ function App() {
           {/* <Route path="/swiper" element={<Swipper />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<Landing />} />
-          <Route path="/admin" element={<Admin /> } />
-          <Route path="/admin/student" element={<StudentEntry schoolId={selectedSchoolId} />} />
-          <Route path="/admin/course" element={<CourseEntry schoolId={selectedSchoolId} />} />
-          <Route path="/admin/educator" element={<EducatorEntry schoolId={selectedSchoolId}/>} />
-          <Route path="/admin/school" element={<SchoolEntry  />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/admin/student"
+            element={<StudentEntry schoolId={selectedSchoolId} />}
+          />
+          <Route
+            path="/admin/course"
+            element={
+              <CourseEntry
+                educators={educators}
+                educatorId={selectedEducatorId}
+                setSelectedEducatorId={setSelectedEducatorId}
+                schoolId={selectedSchoolId}
+                examId={selectedExamId}
+                exams={exams}
+              />
+            }
+          />
+          <Route
+            path="/admin/educator"
+            element={<EducatorEntry schoolId={selectedSchoolId} />}
+          />
+          <Route path="/admin/school" element={<SchoolEntry />} />
 
           <Route path="/student" element={<StudentDashboard />} />
           <Route
@@ -83,7 +197,7 @@ function App() {
           <Route path="student/exams" element={<Exam />} />
           <Route path="student/exam-page" element={<ExamPage />} />
           <Route path="student/results" element={<Result />} />
-          <Route path="student/chat" element={<Chat />} />
+          <Route path="student/chat" element={<Chat coursesId={courseId}/>} />
 
           <Route path="/educator" element={<EducatorDashboard />} />
           <Route path="/educator/add-resources" element={<AddResource />} />
@@ -105,6 +219,9 @@ function App() {
           <Route path="/educator" element={<Educator />} />
 
           <Route path="/plagiarism" element={<PlagiarismChecker />} />
+
+
+
         </Routes>
       </AuthProvider>
     </BrowserRouter>
